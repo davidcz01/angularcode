@@ -1,0 +1,17 @@
+<div class="buttons">
+  <table class="userTbl">
+    <thead>
+      <tr>
+        <th>Model ID</th>
+        <th>Model Name</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let exampleModel of models">
+      <td>
+        {{ exampleModel.modelId }}
+      </td>
+      <td>{{ exampleModel.modelName }}</td>
+    </tbody>
+  </table>
+</div>

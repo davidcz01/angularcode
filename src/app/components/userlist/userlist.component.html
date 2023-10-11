@@ -1,0 +1,20 @@
+<div class="buttons">
+  <table class="userTbl" *ngIf="toggleUserlist">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>ID</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+
+    <tbody *ngFor="let user of users">
+      <td class="clickable" (click)="toggleUserlist()">
+        {{ user.userName }}
+      </td>
+
+      <td *ngIf="!hidden">{{ user.userId }}</td>
+      <td *ngIf="!hidden">{{ user.userDate }}</td>
+    </tbody>
+  </table>
+</div>

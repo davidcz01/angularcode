@@ -1,0 +1,24 @@
+<div class="buttons">
+  <h1>Pipes</h1>
+  <div class="task">
+    <p><b>Toggle between Date Pipe Formatting</b></p>
+    <p>The date is {{ inputDate | date : format }}</p>
+    <button (click)="toggleFormat()">Toggle</button>
+  </div>
+  <div class="task">
+    <p><b>Decimal Pipe Formatting</b></p>
+    <p>The formatted decimal is {{ inputdec | number : "1.2" }}</p>
+  </div>
+
+  <div class="task">
+    <p><b>Formatting text</b></p>
+    <p>The formatted text is {{ textformat.value | uppercase }}</p>
+    <input id="textformat" type="text" [formControl]="textformat" required />
+  </div>
+
+  <div class="task">
+    <p><b>Chaining & Parameterizing Pipes</b></p>
+    <p>The formatted date is {{ combinedPipe | date : format2 | uppercase }}</p>
+    <button (click)="toggleFormat2()">Toggle</button>
+  </div>
+</div>

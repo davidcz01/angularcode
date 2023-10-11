@@ -1,0 +1,24 @@
+<div>
+  <h1 class="logo">
+    <img
+      class="imglogo"
+      src="../assets/logo-header.jpg"
+      alt="Randox Logo"
+      routerLink="/home"
+    />
+  </h1>
+  <h1 class="mainheader">Frontend Development with Angular</h1>
+</div>
+<div class="mainheaderdiv">
+  <nav>
+    <a class="mainrow" routerLink="/home"> Home</a>
+    <a class="mainrow" routerLink="/adminmain"> Admin Portal</a>
+  </nav>
+</div>
+<div
+  [@routeAnimations]="
+    o && o.activatedRouteData && o.activatedRouteData['animation']
+  "
+>
+  <router-outlet #o="outlet"></router-outlet>
+</div>

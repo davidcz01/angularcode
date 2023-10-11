@@ -1,0 +1,24 @@
+<div class="buttons">
+  <button class="toggleBtn" (click)="toggleList()">
+    {{ showList ? "Hide" : "Show" }} list
+  </button>
+
+  <table class="exampleList" *ngIf="showList">
+    <thead>
+      <tr>
+        <th>Item ID</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of items">
+      <td>{{ item.itemId }}</td>
+      <td>{{ item.itemName }}</td>
+      <td>{{ item.itemCode }}</td>
+      <td>{{ item.itemDesc }}</td>
+      <td>{{ item.itemVal }}</td>
+    </tbody>
+  </table>
+</div>

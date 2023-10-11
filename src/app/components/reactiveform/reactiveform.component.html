@@ -1,0 +1,91 @@
+<div class="buttons">
+  <h1>Part 1</h1>
+  <form class="forms">
+    <label for="name">Name: </label>
+    <input id="name" type="text" [formControl]="name" required />
+    <p>Value: {{ name.value }}</p>
+    <button type="button" (click)="updateName()">Reset Field</button>
+  </form>
+
+  <h1>Part 2</h1>
+  <form class="forms" [formGroup]="profileForm" autocomplete="off">
+    <label class="formLabel" for="first-name">Name:</label>
+    <input id="first-name" type="text" formControlName="firstName" />
+    <div
+      class="errors"
+      *ngIf="
+        profileForm.controls.firstName?.invalid &&
+        (profileForm.controls.firstName?.touched ||
+          profileForm.controls.firstName?.dirty)
+      "
+    >
+      <div
+        class="errors"
+        *ngIf="profileForm.get('firstName')?.hasError('required')"
+      >
+        Name is required
+      </div>
+    </div>
+
+    <label class="formLabel" for="email">Email:</label>
+    <input id="email" type="email" formControlName="email" />
+    <div
+      class="errors"
+      *ngIf="
+        profileForm.get('email')?.invalid &&
+        (profileForm.get('email')?.touched || profileForm.get('email')?.dirty)
+      "
+    >
+      <div
+        class="errors"
+        *ngIf="profileForm.get('email')?.hasError('required')"
+      >
+        Email is required
+      </div>
+      <div class="errors" *ngIf="profileForm.get('email')?.hasError('email')">
+        Email address is not valid.
+      </div>
+    </div>
+
+    <label class="formLabel" for="pass-word">Password:</label>
+    <input id="pass-word" type="password" formControlName="passWord" />
+    <div
+      class="errors"
+      *ngIf="
+        profileForm.get('passWord')?.invalid &&
+        (profileForm.get('passWord')?.touched ||
+          profileForm.get('passWord')?.dirty)
+      "
+    >
+      <div
+        class="errors"
+        *ngIf="profileForm.get('passWord')?.hasError('required')"
+      >
+        Password required.
+      </div>
+      <div
+        class="errors"
+        *ngIf="profileForm.get('passWord')?.hasError('minlength')"
+      >
+        Must be at least 8 characters long.
+      </div>
+    </div>
+
+    <button class="addButtons" (click)="addNumber()">Add Phone Numbers</button>
+
+    <ng-container formArrayName="phoneNo">
+      <ng-container *ngFor="let phoneNoForm of phoneNo.controls; let i = index">
+        <div [formGroupName]="i">
+          <label class="formLabel">Number:</label>
+          <input id="phoneNum" type="text" formControlName="number" />
+          <button (click)="deleteNumber(i)">Delete</button>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <p>Complete the form to enable button</p>
+    <button type="submit" (click)="onSubmit()" [disabled]="!profileForm.valid">
+      Submit
+    </button>
+  </form>
+</div>

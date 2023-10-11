@@ -1,0 +1,5 @@
+<div *ngIf="successful; else elseBlock">Input received from Parent</div>
+<ng-template #elseBlock>Input not received from Parent</ng-template>
+<div class="clickable" (click)="sendMessage()">
+  Click to send back Output to Parent
+</div>

@@ -1,0 +1,7 @@
+<div class="buttons">
+  <app-child
+    [successful]="successfulValue"
+    (messageData)="sendMessage($event)"
+  ></app-child>
+  <div>{{ receivedMessage }}</div>
+</div>

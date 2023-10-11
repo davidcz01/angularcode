@@ -1,0 +1,25 @@
+<div class="buttons">
+  <h1>Admin Portal</h1>
+  <button (click)="logOut()">Log out</button>
+
+  <div class="step">
+    <nav>
+      <a
+        class="stepbuttons"
+        routerLink="/adminmain/"
+        routerLinkActiveOptions="{ exact: true }"
+      >
+        Dashboard</a
+      >
+      <a
+        class="stepbuttons"
+        routerLink="/adminmain/adminchild"
+        routerLinkActiveOptions="{ exact: true }"
+      >
+        Manage Users</a
+      >
+    </nav>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
